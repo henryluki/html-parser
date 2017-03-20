@@ -1,15 +1,17 @@
 # html-parser
-Simple html to json parser use Regexp and String.indexOf
+Simple HTML to JSON parser use Regexp and String.indexOf
 
-## basic usage
+## Basic usage
 
-```
+```javascript
+
 var html = "<div style='height:10rpx;width: 20rpx;'>1<p>2<br/><a href='http://www.baidu.com'>3</a></p><p>2</p></div>"
 htmlParser(html)
 
 ```
-#### output
+### Output
 ```javascript
+
 {
   "tag": "root",
   "children": [{
