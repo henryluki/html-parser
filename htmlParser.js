@@ -4,11 +4,13 @@ function makeMap(str) {
     return map
   }, {})
 }
+
 const REGEXP = {
   startTag: /^<([-A-Za-z0-9_]+)((?:\s+[a-zA-Z_:][-a-zA-Z0-9_:.]*(?:\s*=\s*(?:(?:"[^"]*")|(?:'[^']*')|[^>\s]+))?)*)\s*(\/?)>/,
   endTag: /^<\/([-A-Za-z0-9_]+)[^>]*>/,
   attr: /([a-zA-Z_:][-a-zA-Z0-9_:.]*)(?:\s*=\s*(?:(?:"((?:\\.|[^"])*)")|(?:'((?:\\.|[^'])*)')|([^>\s]+)))?/g
 }
+
 const MAKER = {
   empty: makeMap("area,base,basefont,br,col,frame,hr,img,input,link,meta,param,embed,command,keygen,source,track,wbr"),
   block: makeMap("a,address,article,applet,aside,audio,blockquote,button,canvas,center,dd,del,dir,div,dl,dt,fieldset,figcaption,figure,footer,form,frameset,h1,h2,h3,h4,h5,h6,header,hgroup,hr,iframe,ins,isindex,li,map,menu,noframes,noscript,object,ol,output,p,pre,section,script,table,tbody,td,tfoot,th,thead,tr,ul,video"),
@@ -53,7 +55,7 @@ function lex(html) {
       const tag = match[1]
       const isEmpty = !!MAKER.empty[tag]
       const type = isEmpty ? 'tag-empty' : 'tag-start'
-      const attributes = isEmpty ? null : getAttributes(match[2])
+      const attributes = getAttributes(match[2])
 
       tokens.push({
         tag,
@@ -111,7 +113,8 @@ function parse(tokens) {
     if (token.type === 'tag-empty') {
       tagArray.last().children.push({
         type: "Element",
-        tagName: token.tag
+        tagName: token.tag,
+        attributes: token.attributes
       })
       continue
     }
