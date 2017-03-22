@@ -1,0 +1,27 @@
+{
+  "name": "htmlstr-parser",
+  "version": "1.0.0",
+  "description": "Simple HTML to JSON parser use Regexp and String.indexOf",
+  "main": "htmlParser.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/henryluki/html-parser.git"
+  },
+  "keywords": [
+    "html-parser",
+    "parser",
+    "json",
+    "html-to-json",
+    "ast",
+    "Regex"
+  ],
+  "author": "henryluki",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/henryluki/html-parser/issues"
+  },
+  "homepage": "https://github.com/henryluki/html-parser#readme"
+}

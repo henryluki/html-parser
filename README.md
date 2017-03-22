@@ -1,6 +1,12 @@
 # html-parser
 Simple HTML to JSON parser use Regexp and String.indexOf
 
+## Install
+
+```shell
+npm install htmlstr-parser
+
+```
 ## Basic usage
 
 ```javascript
