@@ -1,6 +1,6 @@
 {
   "name": "htmlstr-parser",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Simple HTML to JSON parser use Regexp and String.indexOf",
   "main": "htmlParser.js",
   "scripts": {
