@@ -38,6 +38,10 @@ function lex(html) {
       const match = string.match(REGEXP.endTag)
       if (!match) continue
       string = string.substring(match[0].length)
+
+      const isEmpty = !!MAKER.empty[tag]
+      if (isEmpty) continue
+
       tokens.push({
         tag: match[1],
         type: 'tag-end',
