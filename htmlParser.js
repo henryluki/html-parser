@@ -32,6 +32,7 @@ function getAttributes(str) {
 function lex(html) {
   let string = html
   let tokens = []
+  const maxTime = Date.now() + 1000
 
   while (string) {
     if (string.indexOf("</") === 0) {
@@ -73,6 +74,8 @@ function lex(html) {
       type: "text",
       text
     })
+
+    if (Date.now() >= maxTime) break
   }
   return tokens
 }
