@@ -2,9 +2,19 @@
   "name": "htmlstr-parser",
   "version": "1.0.1",
   "description": "Simple HTML to JSON parser use Regexp and String.indexOf",
-  "main": "htmlParser.js",
+  "main": "dist/htmlParser.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "BABEL_ENV=build rollup -c",
+    "build:es6": "rollup src/index.js -f cjs -o dist/htmlParser.es6.js",
+    "watch": "BABEL_ENV=build rollup -c -w",
+    "pro": "BABEL_ENV=build NODE_ENV=production rollup -c",
+    "update": "npm run build && npm run build:es6 && npm run pro",
+    "test": "ava --watch"
+  },
+  "ava": {
+    "require": [
+      "./ava.js"
+    ]
   },
   "repository": {
     "type": "git",
@@ -23,5 +33,15 @@
   "bugs": {
     "url": "https://github.com/henryluki/html-parser/issues"
   },
-  "homepage": "https://github.com/henryluki/html-parser#readme"
+  "homepage": "https://github.com/henryluki/html-parser#readme",
+  "devDependencies": {
+    "ava": "^0.16.0",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-preset-latest": "^6.24.1",
+    "babel-register": "^6.24.1",
+    "rollup-plugin-babel": "^2.7.1",
+    "rollup-plugin-node-resolve": "^3.0.0",
+    "rollup-plugin-uglify": "^1.0.1",
+    "rollup-watch": "^3.2.2"
+  }
 }
