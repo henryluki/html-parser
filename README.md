@@ -27,14 +27,14 @@ htmlParser(html)
       "style": "height:10rpx;width: 20rpx;"
     },
     "children": [{
-      "type": "text",
+      "type": "Text",
       "content": "1"
     }, {
       "type": "Element",
       "tagName": "p",
       "attributes": {},
       "children": [{
-        "type": "text",
+        "type": "Text",
         "content": "2"
       }, {
         "type": "Element",
@@ -46,7 +46,7 @@ htmlParser(html)
           "href": "http://www.baidu.com"
         },
         "children": [{
-          "type": "text",
+          "type": "Text",
           "content": "3"
         }]
       }]
@@ -55,7 +55,7 @@ htmlParser(html)
       "tagName": "p",
       "attributes": {},
       "children": [{
-        "type": "text",
+        "type": "Text",
         "content": "2"
       }]
     }]
