@@ -136,6 +136,11 @@ function tokenize(html) {
   const maxTime = Date.now() + 1000;
 
   while (string) {
+    if (string.indexOf("<!--") === 0) {
+      const lastIndex = string.indexOf("-->") + 3;
+      string = string.substring(lastIndex);
+      continue
+    }
     if (string.indexOf("</") === 0) {
       const match = string.match(ENDTAG_REX);
       if (!match) continue

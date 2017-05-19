@@ -38,6 +38,12 @@ test('should pass the empty tag case', t=> {
   t.deepEqual(div.children[0], br)
 })
 
+test('should pass the comment case', t=> {
+  const html = "<div><!-- hahha--></div>"
+  const div = htmlParser(html).children[0]
+  t.deepEqual(div.children.length, 0)
+})
+
 test('should pass the nested element case', t=> {
   const html = "<div>a<p>b<span>c</span></p></div>"
   const tree = {

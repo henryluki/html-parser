@@ -220,6 +220,11 @@ function tokenize(html) {
   var maxTime = Date.now() + 1000;
 
   while (string) {
+    if (string.indexOf("<!--") === 0) {
+      var lastIndex = string.indexOf("-->") + 3;
+      string = string.substring(lastIndex);
+      continue;
+    }
     if (string.indexOf("</") === 0) {
       var match = string.match(ENDTAG_REX);
       if (!match) continue;
