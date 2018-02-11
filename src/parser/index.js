@@ -3,7 +3,7 @@ import { ElEMENT_TYPE, TEXT_TYPE, createNodeFactory } from './nodes'
 
 export function parse(tokens) {
   let root = {
-    tag: "root",
+    name: "div",
     children: []
   }
   let tagArray = [root]
@@ -32,5 +32,5 @@ export function parse(tokens) {
     }
   }
 
-  return root
+  return tagArray
 }

@@ -4,7 +4,7 @@ import { isFillattrsMaker } from './makers'
 export class TagStart {
   constructor(name, tag){
     this.name = name
-    this.attributes = this.getAttributes(tag)
+    this.attrs = this.getAttributes(tag)
   }
   getAttributes(str) {
     let attrsMap = {}

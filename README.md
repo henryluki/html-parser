@@ -1,6 +1,16 @@
 # html-parser
 Simple HTML to JSON parser use Regexp and String.indexOf
 
+## Update
+微信建议nodes属性绑定数组，所以返回htmlParse(html)返回值改成数组
+旧版本输出属性名根据微信文档改变：
+```
+"tag":"root" => "name": "div"
+"type": "Element" || "Text" => type: "node" || "text"
+"attributes": {} => attrs: {"class": "parse-*"} // 增加默认class（parse-div,parse-img, parse-a...），可外部修改转换后元素的样式
+"content": "content..." => "text": "text..." // 文本节点内容
+```
+
 ## Install
 
 ```shell
@@ -18,47 +28,49 @@ htmlParser(html)
 ### Output
 ```javascript
 
-{
-  "tag": "root",
+[{
+  "name": "div",
   "children": [{
-    "type": "Element",
-    "tagName": "div",
-    "attributes": {
+    "type": "node",
+    "name": "div",
+    "attrs": {
+      "class": "parse-div",
       "style": "height:10rpx;width: 20rpx;"
     },
     "children": [{
-      "type": "Text",
-      "content": "1"
+      "type": "text",
+      "text": "1"
     }, {
-      "type": "Element",
-      "tagName": "p",
-      "attributes": {},
+      "type": "node",
+      "name": "p",
+      "attrs": {"class": "parse-p"},
       "children": [{
-        "type": "Text",
-        "content": "2"
+        "type": "text",
+        "text": "2"
       }, {
-        "type": "Element",
-        "tagName": "br"
+        "type": "node",
+        "name": "br"
       }, {
-        "type": "Element",
-        "tagName": "a",
-        "attributes": {
+        "type": "node",
+        "name": "a",
+        "attrs": {
+	  "class": "parse-a",
           "href": "http://www.baidu.com"
         },
         "children": [{
-          "type": "Text",
-          "content": "3"
+          "type": "text",
+          "text": "3"
         }]
       }]
     }, {
-      "type": "Element",
-      "tagName": "p",
-      "attributes": {},
+      "type": "node",
+      "name": "p",
+      "attrs": {"class": "parse-p"},
       "children": [{
-        "type": "Text",
-        "content": "2"
+        "type": "text",
+        "text": "2"
       }]
     }]
   }]
-}
+}]
 ```
