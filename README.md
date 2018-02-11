@@ -2,8 +2,9 @@
 Simple HTML to JSON parser use Regexp and String.indexOf
 
 ## Update
-微信建议nodes属性绑定数组，所以返回htmlParse(html)返回值改成数组
+微信建议nodes属性绑定数组，所以htmlParse(html)返回值改成数组
 旧版本输出属性名根据微信文档改变：
+微信文档地址： https://mp.weixin.qq.com/debug/wxadoc/dev/component/rich-text.html
 ```
 "tag":"root" => "name": "div"
 "type": "Element" || "Text" => type: "node" || "text"
