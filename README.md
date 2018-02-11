@@ -21,10 +21,19 @@ npm install htmlstr-parser
 ## Basic usage
 
 ```javascript
+import htmlParser from "htmlParser"
+data: {
+ nodes: []
+}
 
 var html = "<div style='height:10rpx;width: 20rpx;'>1<p>2<br/><a href='http://www.baidu.com'>3</a></p><p>2</p></div>"
-htmlParser(html)
+this.setData({
+  nodes: htmlParser(this.data.html)
+})
 
+```
+```wxml
+<rich-text class="rich-text" nodes="{{nodes}}"></rich-text>
 ```
 ### Output
 ```javascript
