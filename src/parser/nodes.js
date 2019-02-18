@@ -1,31 +1,36 @@
 import { TagEmpty } from '../tokenizer/types'
 
-export const ElEMENT_TYPE = "Element"
-export const TEXT_TYPE = "Text"
+export const ElEMENT_TYPE = "node"
+export const TEXT_TYPE = "text"
 
 function createElement(token){
-  const tagName = token.name
-  const attributes = token.attributes
+  const name = token.name
+  const attrs = token.attrs
+  if(attrs['class']){
+    attrs['class'] += ' parse-' + name
+  } else {
+    attrs['class'] = ' parse-' + name
+  }
   if (token instanceof TagEmpty) {
     return {
       type: ElEMENT_TYPE,
-      tagName,
-      attributes
+      name,
+      attrs
     }
   }
   return {
     type: ElEMENT_TYPE,
-    tagName,
-    attributes,
+    name,
+    attrs,
     children: []
   }
 }
 
 function createText(token){
-  const content = token.text
+  const text = token.text
   return {
     type: TEXT_TYPE,
-    content
+    text
   }
 }
 
